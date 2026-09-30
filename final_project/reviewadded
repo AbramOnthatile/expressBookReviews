@@ -1,0 +1,7 @@
+Prerequisite: log in first and store the session cookie in $env:TEMP\expressbookreviews-user-one.cookies.
+
+Command (PowerShell):
+curl.exe -i -X PUT "http://localhost:5000/customer/auth/review/1?review=First%20review" -b "$env:TEMP\expressbookreviews-user-one.cookies" -c "$env:TEMP\expressbookreviews-user-one.cookies"
+
+Output (HTTP 200):
+{"message":"Review added or updated successfully."}
