@@ -1,0 +1,11 @@
+Requested cURL command:
+curl -s https://api.github.com/repos/AbramOnthatile/expressBookReviews | jq '.parent.full_name'
+
+Output:
+"ibm-developer-skills-network/expressBookReviews"
+
+Note: jq is not installed in the current PowerShell environment. The parent was verified with this equivalent command:
+curl.exe -sS https://api.github.com/repos/AbramOnthatile/expressBookReviews | ConvertFrom-Json | ForEach-Object { $_.parent.full_name }
+
+Equivalent command output:
+ibm-developer-skills-network/expressBookReviews
