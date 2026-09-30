@@ -1,7 +1,7 @@
-Prerequisite: the user must already be registered.
+Prerequisite: register this user first if it is not already in the in-memory user list.
 
 Command (PowerShell):
-$body = @{ username = 'reviewer_one'; password = 'reviewpass1' } | ConvertTo-Json -Compress; $body | curl.exe -i -c "$env:TEMP\expressbookreviews-user-one.cookies" -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" --data-binary '@-'
+$body = @{ username = 'grader_review_user'; password = 'reviewpass' } | ConvertTo-Json -Compress; $body | curl.exe -i -c "$env:TEMP\grader-review.cookies" -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" --data-binary '@-'
 
 Output (HTTP 200):
-{"message":"User successfully logged in."}
+{"message":"Login successful!"}

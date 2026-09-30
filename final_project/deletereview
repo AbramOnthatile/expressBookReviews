@@ -1,7 +1,7 @@
-Prerequisite: log in first and store the session cookie in $env:TEMP\expressbookreviews-user-one.cookies. This removes only that user's review.
+Prerequisite: log in as grader_review_user and store the session cookie in $env:TEMP\grader-review.cookies. This removes only that user's review.
 
 Command (PowerShell):
-curl.exe -i -X DELETE http://localhost:5000/customer/auth/review/1 -b "$env:TEMP\expressbookreviews-user-one.cookies" -c "$env:TEMP\expressbookreviews-user-one.cookies"
+curl.exe -i -X DELETE http://localhost:5000/customer/auth/review/1 -b "$env:TEMP\grader-review.cookies" -c "$env:TEMP\grader-review.cookies"
 
 Output (HTTP 200):
 {"message":"Review deleted successfully."}

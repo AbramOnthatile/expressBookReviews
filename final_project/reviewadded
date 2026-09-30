@@ -1,7 +1,13 @@
-Prerequisite: log in first and store the session cookie in $env:TEMP\expressbookreviews-user-one.cookies.
+Prerequisite: register and log in as grader_review_user, storing the session cookie in $env:TEMP\grader-review.cookies.
 
-Command (PowerShell):
-curl.exe -i -X PUT "http://localhost:5000/customer/auth/review/1?review=First%20review" -b "$env:TEMP\expressbookreviews-user-one.cookies" -c "$env:TEMP\expressbookreviews-user-one.cookies"
+Command (PowerShell, add or modify the review):
+curl.exe -i -X PUT "http://localhost:5000/customer/auth/review/1?review=First%20review" -b "$env:TEMP\grader-review.cookies" -c "$env:TEMP\grader-review.cookies"
 
 Output (HTTP 200):
 {"message":"Review added or updated successfully."}
+
+Command (retrieve the reviews after adding):
+curl.exe -i http://localhost:5000/review/1
+
+Output (HTTP 200):
+{"grader_review_user":"First review"}
