@@ -1,0 +1,11 @@
+Command (successful registration):
+$body = @{ username = 'routecheck_user'; password = 'testpass' } | ConvertTo-Json -Compress; $body | curl.exe -i -X POST http://localhost:5000/register -H "Content-Type: application/json" --data-binary '@-'
+
+Output (HTTP 201):
+{"message":"User successfully registered."}
+
+Repeat the same command to check duplicate handling (HTTP 409):
+{"message":"User already exists."}
+
+Missing credentials response (HTTP 400):
+{"message":"Username and password are required."}
